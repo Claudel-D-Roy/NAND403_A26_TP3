@@ -13,10 +13,24 @@ print(f" le dossier :  {absolute_folder_path}")
 
 #Ajoute le path du fichier au path de python
 sys.path.append(absolute_folder_path)
+
 #Après on import
-from folder.ui import MyClass
+import ui
+import importlib
+importlib.reload(ui)
 
 
-my_class = MyClass()
-my_class.print_variable()
+def main():
+    global tool_window
+    try: 
+        tool_window.close()
+    except Exception:
+        pass
+    random_animation_ui = ui.RandomAnimationUI()
+    random_animation_ui.show()
+
+
+main()
+
+
 
