@@ -7,30 +7,30 @@ absolute_folder_path = os.path.dirname(absolute_file_path)
 
 #absolute_path = os.path.realpath(os.path.curdir), permet d'aller chercher le current directiory
 #print les resultats 
-print(f" le chemin :  {absolute_file_path}")
-print(f" le dossier :  {absolute_folder_path}")
+#print(f" le chemin :  {absolute_file_path}")
+#print(f" le dossier :  {absolute_folder_path}")
 #print(sys.path)
 
 #Ajoute le path du fichier au path de python
 sys.path.append(absolute_folder_path)
 
 #Après on import
-import ui
+import ui 
+import animator 
 import importlib
 importlib.reload(ui)
+importlib.reload(animator)
 
-
+      
 def main():
     global tool_window
-    try: 
+    try:
         tool_window.close()
     except Exception:
         pass
-    random_animation_ui = ui.RandomAnimationUI()
-    random_animation_ui.show()
 
+    random_animator = animator.RandomAnimationAnim()
+    tool_window = ui.RandomAnimationUI(random_animator)
+    tool_window.show()
 
 main()
-
-
-
